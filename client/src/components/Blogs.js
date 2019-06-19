@@ -14,6 +14,7 @@ const Blogs = (props) => {
       })
   }, []);
 
+
   const renderBlogs = () => {
     return blogs.map( blog => (
       <Segment key={blog.id}>
@@ -29,7 +30,7 @@ const Blogs = (props) => {
     <>
       <Header as="h1">My Blogs</Header>
       <br />
-      { showForm && <BlogForm /> }
+      { showForm && <BlogForm toggleForm={setShowForm} add={blog => setBlogs([ ...blogs, blog])} /> }
       <Button onClick={ () => setShowForm(!showForm)}>
         { showForm ? "Close Form" : "Show Form" }
       </Button>
